@@ -13,7 +13,7 @@ export class App extends Component {
     };
   }
 
-  getData = () => {
+  getData = async () => {
     return axios
       .get(`https://api.github.com/users/${this.state.user}`)
       .then((res) => {
@@ -27,7 +27,6 @@ export class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // this.getData();
     if (prevState.user !== this.state.user) {
       return this.getData();
     }
